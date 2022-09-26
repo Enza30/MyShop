@@ -13,27 +13,34 @@ struct Product: Identifiable, Codable, Hashable {
     var price: Double
     var description: String
     var category: String
-    var urlImage: String
-    var rate: Rate
+    var image: String
+    var rating: Rate
 }
 
 struct Rate: Codable, Hashable {
-    let rating: Double
+    let rate: Double
     let countRate: Int = Int.random(in: 0...500)
 }
 
 extension Product {
     var URLImage: URL {
-        URL(string: urlImage)!
+        URL(string: image)!
     }
-    var rateFormatting: String {
-        var result = ""
-        for _ in 0...Int(rate.rating){
-            result.append("★")
-        }
-        while result.count<5 {
-            result += "☆"
-        }
-        return result
+//    var rateFormatting: String {
+//        var result = ""
+//        for _ in 0...Int(rating.rate){
+//            result.append("★")
+//        }
+//        while result.count<5 {
+//            result += "☆"
+//        }
+//        return result
+//    }
+}
+
+extension Product {
+    static var sample: [Product] {
+        let response: [Product]? = try? Bundle.main.loadDecodeJSON(filename: "products")
+        return response ?? [Product(id: 1, title: "noproduct", price: 9.5, description: "noproduct", category: "noproduct", image: "noproduct", rating: Rate(rate: 9.5))]
     }
 }

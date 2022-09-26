@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var productList: ProductListVM
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .center){
+            if productList.products != nil {
+                
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(productList: ProductListVM())
     }
 }
