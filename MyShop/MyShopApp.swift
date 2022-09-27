@@ -11,8 +11,8 @@ import SwiftUI
 struct MyShopApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView(productList: ProductListVM())
-            ProductList(products: Product.sample)
+            ContentView(productList: ProductListVM())
+//            ProductList(products: Product.sample)
         }
     }
 }

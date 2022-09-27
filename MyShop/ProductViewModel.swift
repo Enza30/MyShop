@@ -12,15 +12,6 @@ class ProductListVM: ObservableObject {
     @Published var isLoading = false
     @Published var error: NSError?
     
-    var productFeatured : [Product] {
-        var productsF: [Product] = []
-        if let products = self.products {
-            if products.count >= 4 {
-                productsF = products[0...3].shuffled()
-            }
-        }
-        return productsF
-    }
     
     private let productListServices: APIServicesProtocol
     
